@@ -54,7 +54,7 @@ links:
 ---
 ```
 
-The project will appear automatically on the homepage and participate in the project filters. The `category` can be any text, such as `frontend`, `react`, `full-stack`, `ml`, or `backend`; Astro generates the filter button from the Markdown value.
+The project will appear automatically on the homepage and participate in the project filters. The `category` can be any text, such as `frontend`, `react`, `full-stack`, `ml`, or `backend`; Astro generates the filter button from the Markdown value. Use a unique `order` number for each project so the display order is predictable.
 
 ## Adding a Project After Creating a New Repo
 

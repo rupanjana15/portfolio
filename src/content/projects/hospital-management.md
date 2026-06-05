@@ -4,7 +4,7 @@ description: "Designed and developed a hospital management application integrati
 image: "/assets/hospital_management.jpeg"
 imageAlt: "Project preview"
 category: "full-stack"
-order: 3
+order: 4
 links:
   - label: "GitHub"
     href: "https://github.com/rupanjana15/hospital_management"
