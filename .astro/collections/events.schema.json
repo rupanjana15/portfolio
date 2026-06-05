@@ -11,8 +11,7 @@
           "type": "string"
         },
         "image": {
-          "type": "string",
-          "format": "uri"
+          "type": "string"
         },
         "imageAlt": {
           "type": "string"

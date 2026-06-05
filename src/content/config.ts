@@ -10,7 +10,7 @@ const projects = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    image: z.string().url(),
+    image: z.string(),
     imageAlt: z.string(),
     category: z.string(),
     order: z.number(),
@@ -23,7 +23,7 @@ const events = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    image: z.string().url(),
+    image: z.string(),
     imageAlt: z.string(),
     order: z.number()
   })

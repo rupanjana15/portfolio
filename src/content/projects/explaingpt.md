@@ -1,5 +1,5 @@
 ---
-title: "ExplainGPT
+title: "ExplainGPT"
 description: "Allows you to interact with language models, visualize token probabilities, and understand model behavior through an intuitive interface."
 image: "/assets/ExplainGPT.png"
 imageAlt: "Project preview"
