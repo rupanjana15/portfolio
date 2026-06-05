@@ -1,0 +1,33 @@
+---
+import type { CollectionEntry } from "astro:content";
+import ProjectCard from "./ProjectCard.astro";
+import SectionHeading from "./SectionHeading.astro";
+
+interface Props {
+  projects: CollectionEntry<"projects">[];
+}
+
+const { projects } = Astro.props;
+const categories = Array.from(new Set(projects.map((project) => project.data.category)));
+const formatCategory = (category: string) =>
+  category
+    .split(/[-_\s]+/)
+    .filter(Boolean)
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+---
+
+<section id="projects" class="section">
+  <SectionHeading eyebrow="Browse My Recent" title="Projects" />
+  <div class="filter-bar" aria-label="Project filters">
+    <button class="filter-btn active" type="button" data-filter="all">All</button>
+    {categories.map((category) => (
+      <button class="filter-btn" type="button" data-filter={category}>
+        {formatCategory(category)}
+      </button>
+    ))}
+  </div>
+  <div class="projects-grid">
+    {projects.map((project) => <ProjectCard project={project} />)}
+  </div>
+</section>

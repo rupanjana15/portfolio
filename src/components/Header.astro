@@ -1,0 +1,29 @@
+---
+const navItems = [
+  { href: "#about", label: "About" },
+  { href: "#experience", label: "Experience" },
+  { href: "#tech-stack", label: "Tech Stack" },
+  { href: "#projects", label: "Projects" },
+  { href: "#events", label: "Events" },
+  { href: "#contact", label: "Contact" }
+];
+---
+
+<header class="site-header">
+  <nav class="nav-shell" aria-label="Primary navigation">
+    <a class="logo" href="#profile">Rupanjana</a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links">
+      {navItems.map((item) => (
+        <li><a href={item.href}>{item.label}</a></li>
+      ))}
+    </ul>
+    <button class="icon-button theme-toggle" type="button" aria-label="Toggle dark mode">
+      <i class="fa-solid fa-moon"></i>
+    </button>
+  </nav>
+</header>

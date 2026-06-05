@@ -1,0 +1,38 @@
+{
+  "$ref": "#/definitions/events",
+  "definitions": {
+    "events": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string",
+          "format": "uri"
+        },
+        "imageAlt": {
+          "type": "string"
+        },
+        "order": {
+          "type": "number"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "description",
+        "image",
+        "imageAlt",
+        "order"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

@@ -1,0 +1,36 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+
+const groups = [
+  {
+    icon: "fa-solid fa-code",
+    title: "Languages",
+    items: ["Java", "Python", "SQL", "JavaScript", "TypeScript", "HTML", "CSS"]
+  },
+  {
+    icon: "fa-solid fa-cubes",
+    title: "Frameworks",
+    items: ["React", "Node.js", "Express", "Spring Boot", "Angular"]
+  },
+  {
+    icon: "fa-solid fa-laptop-code",
+    title: "Engineering",
+    items: ["REST APIs", "Microservices", "Token Auth", "Axios", "Git", "VS Code", "IntelliJ", "Eclipse"]
+  }
+];
+---
+
+<section id="tech-stack" class="section">
+  <SectionHeading eyebrow="Explore My" title="Tech Stack" />
+  <div class="tech-grid">
+    {groups.map((group) => (
+      <article class="tech-card">
+        <i class={group.icon}></i>
+        <h3>{group.title}</h3>
+        <div class="chip-row">
+          {group.items.map((item) => <span>{item}</span>)}
+        </div>
+      </article>
+    ))}
+  </div>
+</section>

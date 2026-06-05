@@ -1,0 +1,16 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  event: CollectionEntry<"events">;
+}
+
+const { event } = Astro.props;
+const { data } = event;
+---
+
+<article class="event-card">
+  <img src={data.image} alt={data.imageAlt} loading="lazy" />
+  <h3>{data.title}</h3>
+  <p>{data.description}</p>
+</article>

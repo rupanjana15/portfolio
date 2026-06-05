@@ -1,0 +1,28 @@
+---
+import type { CollectionEntry } from "astro:content";
+import SectionHeading from "./SectionHeading.astro";
+
+interface Props {
+  entries: CollectionEntry<"experience">[];
+}
+
+const { entries } = Astro.props;
+---
+
+<section id="experience" class="section">
+  <SectionHeading eyebrow="Where I Have Built" title="Experience" />
+  <div class="experience-logo-grid">
+    {entries.map(({ data }) => (
+      <article class="experience-logo-card" tabindex="0">
+        <img class={`company-logo ${data.logoClass ?? ""}`} src={data.logo} alt={data.logoAlt} loading="lazy" />
+        <div class="experience-popover">
+          <span>{data.dates} | {data.location}</span>
+          <strong>{data.role}</strong>
+          <ul>
+            {data.highlights.map((highlight) => <li>{highlight}</li>)}
+          </ul>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,18 @@
+---
+import type { CollectionEntry } from "astro:content";
+import EventCard from "./EventCard.astro";
+import SectionHeading from "./SectionHeading.astro";
+
+interface Props {
+  events: CollectionEntry<"events">[];
+}
+
+const { events } = Astro.props;
+---
+
+<section id="events" class="section">
+  <SectionHeading eyebrow="Leadership & Activities" title="Events" />
+  <div class="events-grid">
+    {events.map((event) => <EventCard event={event} />)}
+  </div>
+</section>
