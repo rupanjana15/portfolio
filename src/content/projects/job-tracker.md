@@ -1,7 +1,7 @@
 ---
 title: "Job Tracker"
 description: "Designed to sync with your emails because applying for jobs is hard enough,let AI do the rest."
-image: "/assets/job-tracker.jpeg"
+image: "/assets/job-tracker.jpg"
 imageAlt: "Project preview"
 category: "full-stack"
 order: 4
