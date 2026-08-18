@@ -7,12 +7,35 @@ interface Props {
 
 const { project } = Astro.props;
 const { data } = project;
+const slides = data.gallery ?? [{ src: data.image, alt: data.imageAlt }];
 ---
 
 <article class="project-card" data-category={data.category}>
-  <div class={`project-visual project-${project.id}`}>
-    <img src={data.image} alt={data.imageAlt} loading="lazy" />
-    <span>{data.category.replace("-", " ")}</span>
+  <div class={`project-visual project-${project.id}`} data-carousel={slides.length > 1 ? "true" : undefined} tabindex={slides.length > 1 ? "0" : undefined} aria-label={slides.length > 1 ? `${data.title} image gallery` : undefined}>
+    <div class="project-slides">
+      {slides.map((slide, index) => (
+        <img
+          src={slide.src}
+          alt={slide.alt}
+          loading="lazy"
+          class:list={["project-slide", { active: index === 0 }]}
+          aria-hidden={index === 0 ? "false" : "true"}
+        />
+      ))}
+    </div>
+    <span class="project-category">{data.category.replace("-", " ")}</span>
+    {slides.length > 1 && (
+      <>
+        <div class="carousel-controls">
+          <button class="carousel-arrow carousel-prev" type="button" aria-label={`Previous ${data.title} image`}><i class="fa-solid fa-arrow-left"></i></button>
+          <p class="carousel-count" aria-live="polite"><strong>1</strong> / {slides.length}</p>
+          <button class="carousel-arrow carousel-next" type="button" aria-label={`Next ${data.title} image`}><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+        <div class="carousel-dots" aria-hidden="true">
+          {slides.map((_, index) => <i class:list={{ active: index === 0 }}></i>)}
+        </div>
+      </>
+    )}
   </div>
   <div class="project-body">
     <span class="project-index">{String(data.order).padStart(2, "0")}</span>

@@ -15,6 +15,31 @@ document.querySelectorAll(".project-visual img").forEach((image) => {
   if (image.complete) hideMissingImage();
 });
 
+document.querySelectorAll("[data-carousel]").forEach((carousel) => {
+  const slides = Array.from(carousel.querySelectorAll(".project-slide"));
+  const dots = Array.from(carousel.querySelectorAll(".carousel-dots i"));
+  const count = carousel.querySelector(".carousel-count strong");
+  let current = 0;
+
+  const showSlide = (nextIndex) => {
+    current = (nextIndex + slides.length) % slides.length;
+    slides.forEach((slide, index) => {
+      const isActive = index === current;
+      slide.classList.toggle("active", isActive);
+      slide.setAttribute("aria-hidden", String(!isActive));
+    });
+    dots.forEach((dot, index) => dot.classList.toggle("active", index === current));
+    if (count) count.textContent = String(current + 1);
+  };
+
+  carousel.querySelector(".carousel-prev")?.addEventListener("click", () => showSlide(current - 1));
+  carousel.querySelector(".carousel-next")?.addEventListener("click", () => showSlide(current + 1));
+  carousel.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft") showSlide(current - 1);
+    if (event.key === "ArrowRight") showSlide(current + 1);
+  });
+});
+
 menuToggle?.addEventListener("click", () => {
   const isOpen = navLinks.classList.toggle("open");
   menuToggle.classList.toggle("open", isOpen);

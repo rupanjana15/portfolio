@@ -4,7 +4,7 @@ description: "An AI-assisted workflow that turns inbox updates into structured a
 image: "/assets/job-tracker.jpg"
 imageAlt: "Project preview"
 category: "full-stack"
-order: 2
+order: 4
 links:
   - label: "GitHub"
     href: "https://github.com/rupanjana15/job_application_tracker"
