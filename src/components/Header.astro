@@ -1,17 +1,14 @@
 ---
 const navItems = [
-  { href: "#about", label: "About" },
+  { href: "#projects", label: "Work" },
   { href: "#experience", label: "Experience" },
-  { href: "#tech-stack", label: "Tech Stack" },
-  { href: "#projects", label: "Projects" },
-  { href: "#events", label: "Events" },
-  { href: "#contact", label: "Contact" }
+  { href: "#about", label: "About" }
 ];
 ---
 
 <header class="site-header">
   <nav class="nav-shell" aria-label="Primary navigation">
-    <a class="logo" href="#profile">Rupanjana</a>
+    <a class="logo" href="#profile" aria-label="Rupanjana Choudhury, home">RC<span>.</span></a>
     <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
       <span></span>
       <span></span>
@@ -22,8 +19,6 @@ const navItems = [
         <li><a href={item.href}>{item.label}</a></li>
       ))}
     </ul>
-    <button class="icon-button theme-toggle" type="button" aria-label="Toggle dark mode">
-      <i class="fa-solid fa-moon"></i>
-    </button>
+    <a class="nav-cta" href="#contact">Let's talk <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
   </nav>
 </header>

@@ -17,10 +17,10 @@ const experience = (await getCollection("experience")).sort(byOrder);
 
 <Layout>
   <Hero />
-  <About />
-  <Experience entries={experience} />
-  <TechStack />
   <Projects projects={projects} />
+  <Experience entries={experience} />
+  <About />
+  <TechStack />
   <Events events={events} />
   <Contact />
 </Layout>

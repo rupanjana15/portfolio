@@ -10,21 +10,23 @@ const { data } = project;
 ---
 
 <article class="project-card" data-category={data.category}>
-  <img src={data.image} alt={data.imageAlt} loading="lazy" />
-  <div>
+  <div class={`project-visual project-${project.id}`}>
+    <img src={data.image} alt={data.imageAlt} loading="lazy" />
+    <span>{data.category.replace("-", " ")}</span>
+  </div>
+  <div class="project-body">
+    <span class="project-index">{String(data.order).padStart(2, "0")}</span>
     <h3>{data.title}</h3>
     <p>{data.description}</p>
-  </div>
-  <div class="card-actions">
-    {data.links.map((link, index) => (
-      <a
-        class={`btn compact ${index === data.links.length - 1 ? "primary" : "secondary"}`}
+    <div class="card-actions">
+      {data.links.map((link) => (
+        <a
+        class="project-link"
         href={link.href}
         target={link.href.startsWith("#") ? undefined : "_blank"}
         rel={link.href.startsWith("#") ? undefined : "noreferrer"}
-      >
-        {link.label}
-      </a>
-    ))}
+        >{link.label} <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      ))}
+    </div>
   </div>
 </article>

@@ -1,6 +1,6 @@
 ---
 title: "Hospital Management"
-description: "Designed and developed a hospital management application integrating patient management, scheduling, billing, and database-driven healthcare workflows."
+description: "A full-stack healthcare workflow spanning patient records, appointment scheduling, billing, and role-aware database operations."
 image: "/assets/hospital_management.jpeg"
 imageAlt: "Project preview"
 category: "full-stack"

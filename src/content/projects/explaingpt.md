@@ -1,6 +1,6 @@
 ---
 title: "ExplainGPT"
-description: "Allows you to interact with language models, visualize token probabilities, and understand model behavior through an intuitive interface."
+description: "An explainability interface for exploring language-model responses and token probabilities, making opaque model behavior easier to inspect."
 image: "/assets/ExplainGPT.png"
 imageAlt: "Project preview"
 category: "full-stack"

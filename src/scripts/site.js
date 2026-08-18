@@ -7,6 +7,14 @@ const backToTop = document.querySelector(".back-to-top");
 const copyEmail = document.querySelector(".copy-email");
 const sections = document.querySelectorAll("main section[id]");
 
+document.querySelectorAll(".project-visual img").forEach((image) => {
+  const hideMissingImage = () => {
+    if (!image.naturalWidth) image.hidden = true;
+  };
+  image.addEventListener("error", hideMissingImage);
+  if (image.complete) hideMissingImage();
+});
+
 menuToggle?.addEventListener("click", () => {
   const isOpen = navLinks.classList.toggle("open");
   menuToggle.classList.toggle("open", isOpen);

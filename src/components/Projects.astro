@@ -18,9 +18,9 @@ const formatCategory = (category: string) =>
 ---
 
 <section id="projects" class="section">
-  <SectionHeading eyebrow="Browse My Recent" title="Projects" />
+  <SectionHeading eyebrow="Selected work" title="Built to solve real problems." />
   <div class="filter-bar" aria-label="Project filters">
-    <button class="filter-btn active" type="button" data-filter="all">All</button>
+    <button class="filter-btn active" type="button" data-filter="all">All work</button>
     {categories.map((category) => (
       <button class="filter-btn" type="button" data-filter={category}>
         {formatCategory(category)}
