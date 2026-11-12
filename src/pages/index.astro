@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import About from "../components/About.astro";
+import Cat from "../components/Cat.astro";
 import Contact from "../components/Contact.astro";
 import Events from "../components/Events.astro";
 import Experience from "../components/Experience.astro";
@@ -17,6 +18,9 @@ const experience = (await getCollection("experience")).sort(byOrder);
 
 <Layout>
   <Hero />
+  <div class="cat-walk" aria-hidden="true">
+    <Cat class="walk-cat" />
+  </div>
   <Projects projects={projects} />
   <Experience entries={experience} />
   <About />

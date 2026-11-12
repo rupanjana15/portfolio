@@ -18,7 +18,8 @@ const projects = defineCollection({
     })).optional(),
     category: z.string(),
     order: z.number(),
-    links: z.array(linkSchema)
+    links: z.array(linkSchema),
+    play: z.string().optional()
   })
 });
 

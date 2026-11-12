@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import Cat from "./Cat.astro";
 import ProjectCard from "./ProjectCard.astro";
 import SectionHeading from "./SectionHeading.astro";
 
@@ -26,23 +27,17 @@ const formatCategory = (category: string) =>
         {formatCategory(category)}
       </button>
     ))}
-    <span class="filter-cat" aria-hidden="true">
-      <span class="filter-cat-hop">
-        <svg viewBox="0 0 40 36" width="40" height="36">
-          <path class="filter-cat-tail" d="M9 30 C 1 30, 0 18, 6 15" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
-          <ellipse cx="18" cy="26" rx="11" ry="9" fill="currentColor" />
-          <circle cx="28" cy="14" r="7.5" fill="currentColor" />
-          <polygon points="21.5,10 22.5,1.5 27,7" fill="currentColor" />
-          <polygon points="29,7 33.5,1.5 34.5,10" fill="currentColor" />
-          <g class="filter-cat-eyes" fill="var(--bg)">
-            <circle cx="25.5" cy="14" r="1.3" />
-            <circle cx="31" cy="14" r="1.3" />
-          </g>
-        </svg>
-      </span>
-    </span>
+    <Cat class="filter-cat" />
   </div>
   <div class="projects-grid">
     {projects.map((project) => <ProjectCard project={project} />)}
   </div>
+  <dialog class="play-dialog" aria-labelledby="play-title">
+    <div class="play-bar">
+      <strong id="play-title"></strong>
+      <a class="play-newtab" href="" target="_blank" rel="noreferrer">Open in a new tab <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      <button class="play-close" type="button" aria-label="Close game"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <iframe title="Game" allow="fullscreen"></iframe>
+  </dialog>
 </section>

@@ -217,49 +217,199 @@ h3,
   outline-offset: 4px;
 }
 
-.filter-cat {
+/* Cats: one drawing (Cat.astro) that sits, walks and naps around the site. */
+.cat {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 2;
   color: var(--text);
-  pointer-events: none;
-  opacity: 0;
-  transition: transform .5s cubic-bezier(.45, 0, .25, 1), opacity .2s;
+  transition: transform .5s cubic-bezier(.35, 0, .65, 1), opacity .2s;
 }
 
-.filter-cat.ready {
-  opacity: 1;
+.cat-body {
+  position: relative;
+  display: block;
 }
 
-.filter-cat svg {
+.cat svg {
   display: block;
   transition: transform .2s;
 }
 
-.filter-cat.facing-left svg {
+.cat.facing-left svg {
   transform: scaleX(-1);
 }
 
-.filter-cat-hop.hopping {
-  animation: cat-hop .5s cubic-bezier(.45, 0, .25, 1);
+.cat .cat-run,
+.cat .cat-sleep {
+  position: absolute;
+  left: -4px;
+  bottom: 0;
+  visibility: hidden;
 }
 
-.filter-cat-tail {
+.cat.running .cat-sit,
+.cat.sleeping .cat-sit {
+  visibility: hidden;
+}
+
+.cat.running .cat-run {
+  visibility: visible;
+  animation: cat-bob .42s ease-in-out infinite;
+}
+
+.cat.sleeping .cat-sleep {
+  visibility: visible;
+}
+
+.cat.facing-left .cat-run {
+  animation-name: cat-bob-left;
+}
+
+/* Dashing: a brisk trot, a little quicker than the stroll. */
+.cat.dashing {
+  transition-timing-function: cubic-bezier(.3, .4, .4, 1);
+}
+
+.cat.dashing .cat-run,
+.cat.dashing .cat-leg {
+  animation-duration: .3s;
+}
+
+.cat-leg {
+  animation: cat-stride .42s ease-in-out infinite alternate;
+}
+
+.cat-leg-back-a { transform-origin: 14px 22px; }
+.cat-leg-back-b { transform-origin: 17px 22px; animation-direction: alternate-reverse; }
+.cat-leg-front-a { transform-origin: 29px 22px; animation-direction: alternate-reverse; }
+.cat-leg-front-b { transform-origin: 32px 22px; }
+
+.cat-tail {
   transform-origin: 9px 30px;
   animation: cat-tail 2.4s ease-in-out infinite;
 }
 
-.filter-cat-eyes {
+.cat-eyes {
   transform-origin: 28px 14px;
   animation: cat-blink 4s infinite;
 }
 
-@keyframes cat-hop {
-  0% { transform: translateY(0) scaleY(.85); }
-  15% { transform: translateY(-6px) scaleY(1.08); }
-  50% { transform: translateY(-30px) scaleY(1.05); }
-  85% { transform: translateY(0) scaleY(.82); }
-  100% { transform: translateY(0) scaleY(1); }
+.cat-breath {
+  transform-origin: 22px 35px;
+  animation: cat-breathe 3s ease-in-out infinite;
+}
+
+.cat-zzz {
+  position: absolute;
+  right: -10px;
+  bottom: 26px;
+  display: none;
+  pointer-events: none;
+}
+
+.cat.sleeping .cat-zzz {
+  display: block;
+}
+
+.cat-zzz i {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  color: var(--accent);
+  font: 600 .7rem var(--body);
+  font-style: normal;
+  opacity: 0;
+  animation: cat-zzz 3s ease-out infinite;
+}
+
+.cat-zzz i:nth-child(2) { animation-delay: 1s; }
+.cat-zzz i:nth-child(3) { animation-delay: 2s; }
+
+.cat-say {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--text);
+  color: var(--bg);
+  font: 600 .72rem var(--body);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 4px);
+  transition: opacity .2s, transform .2s;
+}
+
+.cat.saying .cat-say {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.filter-cat,
+.walk-cat {
+  opacity: 0;
+}
+
+.filter-cat {
+  pointer-events: none;
+}
+
+.filter-cat.ready,
+.walk-cat.ready {
+  opacity: 1;
+}
+
+/* A thin floor between the hero and the projects for the walking cat. */
+.cat-walk {
+  position: relative;
+  width: min(1160px, calc(100% - 48px));
+  height: 1px;
+  margin: 40px auto 0;
+  background: var(--line);
+  overflow-x: clip;
+}
+
+.walk-cat {
+  top: -36px;
+  cursor: pointer;
+}
+
+@media (max-width: 680px) {
+  .cat-walk {
+    width: calc(100% - 30px);
+  }
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.footer-cat {
+  position: relative;
+  top: auto;
+  left: auto;
+  cursor: pointer;
+}
+
+@keyframes cat-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
+@keyframes cat-bob-left {
+  0%, 100% { transform: scaleX(-1) translateY(0); }
+  50% { transform: scaleX(-1) translateY(-2px); }
+}
+
+@keyframes cat-stride {
+  from { transform: rotate(-25deg); }
+  to { transform: rotate(25deg); }
 }
 
 @keyframes cat-tail {
@@ -272,6 +422,98 @@ h3,
   97% { transform: scaleY(.1); }
 }
 
+@keyframes cat-breathe {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(1.08); }
+}
+
+@keyframes cat-zzz {
+  0% { opacity: 0; transform: translate(0, 0) scale(.7); }
+  20% { opacity: 1; }
+  100% { opacity: 0; transform: translate(10px, -22px) scale(1.15); }
+}
+
+/* Playable projects open in a dialog. */
+.play-btn {
+  border: 0;
+  border-bottom: 1px solid var(--accent);
+  background: none;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.play-dialog {
+  width: min(1200px, 94vw);
+  height: min(780px, 88vh);
+  max-width: none;
+  max-height: none;
+  margin: auto;
+  padding: 0;
+  border: 1px solid var(--line);
+  background: #000;
+  color: var(--text);
+  overflow: hidden;
+}
+
+.play-dialog[open] {
+  display: flex;
+  flex-direction: column;
+}
+
+.play-dialog::backdrop {
+  background: #000c;
+  backdrop-filter: blur(4px);
+}
+
+.play-bar {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 8px 10px 8px 18px;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.play-bar strong {
+  margin-right: auto;
+  font-weight: 600;
+}
+
+.play-newtab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: .8rem;
+}
+
+.play-newtab:hover {
+  color: var(--text);
+}
+
+.play-newtab i {
+  font-size: .65rem;
+}
+
+.play-close {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 0;
+  background: none;
+  color: var(--text);
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.play-dialog iframe {
+  flex: 1;
+  width: 100%;
+  border: 0;
+  background: #f7f3e8;
+}
+
 @media (max-width: 680px) {
   .filter-bar {
     gap: 6px 20px;
@@ -281,12 +523,25 @@ h3,
   .filter-btn {
     font-size: .95rem;
   }
+
+  .play-dialog {
+    width: 100vw;
+    height: 100dvh;
+    border: 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .filter-cat-hop.hopping,
-  .filter-cat-tail,
-  .filter-cat-eyes {
+  .cat.running .cat-run,
+  .cat-leg,
+  .cat-tail,
+  .cat-eyes,
+  .cat-breath,
+  .cat-zzz i {
     animation: none;
+  }
+
+  .cat-zzz i:first-child {
+    opacity: 1;
   }
 }

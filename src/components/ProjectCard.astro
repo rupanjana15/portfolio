@@ -42,6 +42,11 @@ const slides = data.gallery ?? [{ src: data.image, alt: data.imageAlt }];
     <h3>{data.title}</h3>
     <p>{data.description}</p>
     <div class="card-actions">
+      {data.play && (
+        <button class="project-link play-btn" type="button" data-play={data.play} data-play-title={data.title}>
+          Play it here <i class="fa-solid fa-gamepad"></i>
+        </button>
+      )}
       {data.links.map((link) => (
         <a
         class="project-link"

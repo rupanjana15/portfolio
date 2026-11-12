@@ -12,6 +12,7 @@ gallery:
     alt: "The Crystal Drill as a 3D model generated from the sketch"
 category: "fun"
 order: 8
+play: "/play/doodle-derby/index.html"
 links:
   - label: "GitHub"
     href: "https://github.com/rupanjana15/doodle-derby"
