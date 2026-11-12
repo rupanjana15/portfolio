@@ -11,7 +11,7 @@ gallery:
   - src: "/assets/portfolio-contact.png"
     alt: "Portfolio contact section with email, LinkedIn, and photo gallery"
 category: "frontend"
-order: 6
+order: 9
 links:
   - label: "You're looking at it — back to top"
     href: "#profile"

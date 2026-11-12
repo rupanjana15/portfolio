@@ -66,17 +66,50 @@ if (themeToggle && localStorage.getItem("portfolio-theme") === "dark") {
   themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
 }
 
+const filterCat = document.querySelector(".filter-cat");
+const filterCatHop = document.querySelector(".filter-cat-hop");
+let catX = null;
+
+const placeCat = (button, hop) => {
+  if (!filterCat || !button) return;
+  const x = button.offsetLeft + button.offsetWidth / 2 - filterCat.offsetWidth / 2;
+  const y = button.offsetTop - filterCat.offsetHeight + 4;
+  if (catX !== null && x !== catX) filterCat.classList.toggle("facing-left", x < catX);
+  filterCat.style.transform = `translate(${x}px, ${y}px)`;
+  catX = x;
+  if (hop) {
+    filterCatHop.classList.remove("hopping");
+    void filterCatHop.offsetWidth; // restart the hop animation
+    filterCatHop.classList.add("hopping");
+  }
+};
+
+filterCatHop?.addEventListener("animationend", () => filterCatHop.classList.remove("hopping"));
+
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const filter = button.dataset.filter;
     filterButtons.forEach((item) => item.classList.remove("active"));
     button.classList.add("active");
+    placeCat(button, true);
 
     projectCards.forEach((card) => {
       card.hidden = filter !== "all" && card.dataset.category !== filter;
     });
   });
 });
+
+if (filterCat) {
+  const placeOnActive = () => placeCat(document.querySelector(".filter-btn.active"), false);
+  document.fonts.ready.then(() => {
+    filterCat.style.transition = "none";
+    placeOnActive();
+    void filterCat.offsetWidth;
+    filterCat.style.transition = "";
+    filterCat.classList.add("ready");
+  });
+  window.addEventListener("resize", placeOnActive);
+}
 
 copyEmail?.addEventListener("click", async () => {
   const originalText = copyEmail.innerHTML;

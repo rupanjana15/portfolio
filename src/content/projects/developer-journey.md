@@ -11,7 +11,7 @@ gallery:
   - src: "/assets/developer-journey-focus.png"
     alt: "Developer Journey current focus and proof-of-work workspace"
 category: "full-stack"
-order: 1
+order: 2
 links:
   - label: "GitHub"
     href: "https://github.com/rupanjana15/developer-journey"

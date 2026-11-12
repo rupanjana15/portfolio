@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif">
+  <rect width="1200" height="800" fill="#0d0f0c"/>
+
+  <!-- status bar -->
+  <rect x="60" y="60" width="1080" height="56" rx="10" fill="#171a14" stroke="#2f3628"/>
+  <circle cx="92" cy="88" r="7" fill="#c8ff65"/>
+  <text x="112" y="95" font-family="ui-monospace, Menlo, monospace" font-size="19" fill="#d8d6cf">~/agents</text>
+  <text x="1110" y="95" font-family="ui-monospace, Menlo, monospace" font-size="17" fill="#8f9a80" text-anchor="end">2 running · powered by Claude</text>
+
+  <!-- Job agent -->
+  <rect x="60" y="140" width="560" height="600" rx="10" fill="#171a14" stroke="#2f3628"/>
+  <text x="90" y="186" font-size="15" letter-spacing="2" fill="#8f9a80">JOB AGENT</text>
+  <text x="90" y="226" font-size="26" font-weight="700" fill="#f2f0ea">Scout. Score. Tailor.</text>
+  <text x="90" y="258" font-size="17" fill="#8f9a80">LinkedIn · Wellfound · Cutshort</text>
+
+  <g font-size="18">
+    <rect x="90" y="292" width="500" height="92" rx="8" fill="#0d0f0c" stroke="#2f3628"/>
+    <text x="114" y="330" fill="#f2f0ea">Backend Engineer · fintech</text>
+    <text x="114" y="360" fill="#8f9a80">résumé tailored · cover note drafted</text>
+    <text x="566" y="345" font-size="30" font-weight="700" fill="#c8ff65" text-anchor="end">9</text>
+
+    <rect x="90" y="400" width="500" height="92" rx="8" fill="#0d0f0c" stroke="#c8ff65" stroke-opacity=".6"/>
+    <text x="114" y="438" fill="#f2f0ea">Full-stack Developer · SaaS</text>
+    <text x="114" y="468" fill="#c8ff65">form filled · waiting for your yes</text>
+    <text x="566" y="453" font-size="30" font-weight="700" fill="#c8ff65" text-anchor="end">8</text>
+
+    <rect x="90" y="508" width="500" height="92" rx="8" fill="#0d0f0c" stroke="#2f3628"/>
+    <text x="114" y="546" fill="#8f9a80">SDE · on-site only</text>
+    <text x="114" y="576" fill="#6f6d68">deal-breaker · skipped</text>
+    <text x="566" y="561" font-size="30" font-weight="700" fill="#6f6d68" text-anchor="end">0</text>
+  </g>
+  <text x="90" y="660" font-size="40" font-weight="700" fill="#f2f0ea">141</text>
+  <text x="90" y="694" font-size="17" fill="#8f9a80">roles scouted · never submits without a yes</text>
+
+  <!-- Planner agent -->
+  <rect x="640" y="140" width="500" height="600" rx="10" fill="#171a14" stroke="#2f3628"/>
+  <text x="670" y="186" font-size="15" letter-spacing="2" fill="#8f9a80">PLANNER AGENT</text>
+  <text x="670" y="226" font-size="26" font-weight="700" fill="#f2f0ea">Runs the day.</text>
+  <text x="670" y="258" font-size="17" fill="#8f9a80">3 scheduled runs on a shared Day Sheet</text>
+
+  <line x1="690" y1="310" x2="690" y2="680" stroke="#2f3628" stroke-width="2"/>
+  <g font-size="18">
+    <circle cx="690" cy="320" r="9" fill="#c8ff65"/>
+    <text x="716" y="314" fill="#8f9a80">08:00</text>
+    <text x="716" y="342" fill="#f2f0ea">Builds today's list</text>
+
+    <g fill="#c8ff65" fill-opacity=".45">
+      <circle cx="690" cy="390" r="5"/><circle cx="690" cy="420" r="5"/><circle cx="690" cy="510" r="5"/><circle cx="690" cy="540" r="5"/>
+    </g>
+    <circle cx="690" cy="465" r="9" fill="#c8ff65"/>
+    <text x="716" y="430" fill="#8f9a80">every 30 min</text>
+    <text x="716" y="458" fill="#f2f0ea">"Starting now."</text>
+    <text x="716" y="486" fill="#f2f0ea">"You haven't started…"</text>
+    <text x="716" y="514" fill="#f2f0ea">"Tick it off?"</text>
+
+    <circle cx="690" cy="620" r="9" fill="#c8ff65"/>
+    <text x="716" y="614" fill="#8f9a80">23:30</text>
+    <text x="716" y="642" fill="#f2f0ea">Logs it, carries it, plans tomorrow</text>
+  </g>
+</svg>

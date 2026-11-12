@@ -12,8 +12,8 @@ gallery:
     alt: "ExplainGPT interactive token probability breakdown"
   - src: "/assets/explaingpt-probabilities.png"
     alt: "ExplainGPT token probabilities visualizer input screen"
-category: "full-stack"
-order: 2
+category: "ai"
+order: 3
 links:
   - label: "GitHub"
     href: "https://github.com/rupanjana15/ExplainGPT"
